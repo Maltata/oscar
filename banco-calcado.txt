@@ -1,0 +1,66 @@
+-- Database: oscar_api
+
+-- DROP DATABASE oscar_api;
+
+CREATE DATABASE oscar_api
+    WITH 
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'Portuguese_Brazil.1252'
+    LC_CTYPE = 'Portuguese_Brazil.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1;
+
+
+
+
+
+-- Table: public.calcado
+
+-- DROP TABLE public.calcado;
+
+CREATE TABLE public.calcado
+(
+    id_calcado bigint NOT NULL DEFAULT nextval('calcado_id_calcado_seq'::regclass),
+    tamanho_calcado character varying(2) COLLATE pg_catalog."default" NOT NULL,
+    categoria_calcado character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    cor_calcado character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    preco_calcado numeric(19,6) NOT NULL,
+    marca_calcado character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    quantidade_estoque_calcado integer NOT NULL,
+    descricao_calcado character varying(50) COLLATE pg_catalog."default",
+    data_cad_calcado date NOT NULL,
+    CONSTRAINT calcado_pkey PRIMARY KEY (id_calcado)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.calcado
+    OWNER to postgres;
+
+
+
+INSERT INTO calcado VALUES
+    (0, '40', 'tenis', 'Preto', '199.90', 'Mizuno', '5', 'Tenis para corrida', '2022-02-09');
+INSERT INTO calcado VALUES
+    (1, '40', 'tenis', 'azul', '249.90', 'mizuno', '5', 'Tenis para corrida', '2022-02-09');
+INSERT INTO calcado VALUES
+    (2, '42', 'tenis', 'rosa', '150.00', 'mizuno', '5', 'Tenis para corrida', '2022-02-09');
+INSERT INTO calcado VALUES
+    (3, '39', 'tenis', 'preto', '200.00', 'adidas', '3', 'Tenis espertista', '2022-02-10');
+INSERT INTO calcado VALUES
+    (4, '42', 'tenis', 'vermelho', '145.00', 'nike', '12', 'Tenis pra montanhismo', '2022-02-10');
+INSERT INTO calcado VALUES
+    (5, '37', 'sapato', 'preto', '319.90', 'mizuno', '4', 'sapato de luxo', '2022-02-10');
+INSERT INTO calcado VALUES
+    (6, '37', 'sapato', 'marrom', '149.90', 'mizuno', '17', '', '2022-02-11');
+INSERT INTO calcado VALUES
+    (7, '38', 'sapato', 'marrom', '149.90', 'mizuno', '7', 'sapato paara trabalho', '2022-02-11');
+INSERT INTO calcado VALUES
+    (8, '42', 'chinelo', 'preto', '220.00', 'havainas', '9', 'chinelo popular', '2022-02-11');
+INSERT INTO calcado VALUES
+    (9, '41', 'chinelo', 'branco', '200.00', 'ipanema', '1', '', '2022-02-12');
+
+
