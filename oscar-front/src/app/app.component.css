@@ -1,0 +1,70 @@
+.menuLateral {
+    height: 100%;
+    width: 230px;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    background-color: #374250;
+    overflow-x: hidden;
+    transition: 0.5s;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.itemMenu {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: .05em;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    list-style-type: none;
+    border-bottom: solid 0.5px rgb(160, 159, 159);
+    padding: 12px 12px 12px 30px;
+}
+
+.ul {
+    padding-left: 0px !important;
+}
+
+.conteudo {
+    margin-left: 230px;
+}
+
+.corpoDaTela {
+    padding-top: 50px;
+    padding-left: 25px;
+}
+
+.itemNoCorpo {
+    padding-top: 5px;
+}
+
+.tituloCorpo {
+    padding-bottom: 10px;
+}
+
+.botaoAdicionar {
+    max-width: 95px !important;
+}
+
+.rowBotoes {
+    padding-top: 20px;
+}
+
+.label {
+    text-align: right;
+}
+
+.tabelaBuscaCalcados {
+    padding-top: 30px;
+    max-width: 98% !important;
+}

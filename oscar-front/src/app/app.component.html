@@ -1,0 +1,258 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="menuLateral">
+    <ul class="ul">
+        <li class="itemMenu" (click)="telaHome()"><a><i class="pi pi-unlock"></i> Home</a></li>
+        <li class="itemMenu" (click)="telaCadastro()"><a><i class="pi pi-unlock"></i> Cadastro</a></li>
+        <li class="itemMenu" (click)="telaBusca()"><a><i class="pi pi-unlock"></i> Busca Calçados</a></li>
+    </ul>
+</div>
+
+<div class="conteudo">
+    <div class="telaHome" *ngIf="exibeTelaHome">
+        <div style="text-align:center; padding-top: 15px">
+            <h1>
+                CRUD Calçados - Oscar
+            </h1>
+            <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+        </div>
+        <!-- <h2>Here are some links to help you start: </h2> -->
+        <ul>
+            <!-- <li>
+                <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+            </li>
+            <li>
+                <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
+            </li>
+            <li>
+                <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+            </li> -->
+        </ul>
+    </div>
+
+    <div class="telaCadastro" *ngIf="exibeTelaCadastro">
+
+        <div class="corpoDaTela">
+
+            <h3 class="tituloCorpo">Cadastro de Calçado:</h3>
+
+            <div class="row itemNoCorpo">
+                <h5 class="col-2">Tamanho:</h5>
+
+                <input class="col-4" type="text" [(ngModel)]="cadastroCalcado.tamanhoCalcado">
+
+                <h6 class="col-2" style="color: red;" [hidden]="validaTamanho">*Campo Obrigatório</h6>
+            </div>
+
+            <div class="row itemNoCorpo">
+                <h5 class="col-2">Categoria:</h5>
+
+                <input class="col-4" type="text" [(ngModel)]="cadastroCalcado.categoriaCalcado">
+
+                <h6 class="col-2" style="color: red;" [hidden]="validaCategoria">*Campo Obrigatório</h6>
+            </div>
+
+            <div class="row itemNoCorpo">
+                <h5 class="col-2">Cor:</h5>
+
+                <input class="col-4" type="text" [(ngModel)]="cadastroCalcado.corCalcado">
+
+                <h6 class="col-2" style="color: red;" [hidden]="validaCor">*Campo Obrigatório</h6>
+            </div>
+
+            <div class="row itemNoCorpo">
+                <h5 class="col-2">Preço (R$):</h5>
+
+                <input currencyMask class="col-4" type="text" [(ngModel)]="cadastroCalcado.precoCalcado">
+
+                <h6 class="col-2" style="color: red;" [hidden]="validaPreco">*Campo Obrigatório</h6>
+            </div>
+
+            <div class="row itemNoCorpo">
+                <h5 class="col-2">Marca:</h5>
+
+                <input class="col-4" type="text" [(ngModel)]="cadastroCalcado.marcaCalcado">
+
+                <h6 class="col-2" style="color: red;" [hidden]="validaMarca">*Campo Obrigatório</h6>
+            </div>
+
+            <div class="row itemNoCorpo">
+                <h5 class="col-2">Qtd Estoque:</h5>
+
+                <input class="col-4" type="text" [(ngModel)]="cadastroCalcado.quantidadeEstoqueCalcado">
+
+                <h6 class="col-2" style="color: red;" [hidden]="validaQtd">*Campo Obrigatório</h6>
+            </div>
+
+            <div class="row itemNoCorpo">
+                <h5 class="col-2">Descrição:</h5>
+
+                <input class="col-4" type="text" [(ngModel)]="cadastroCalcado.descricaoCalcado">
+            </div>
+
+            <div class="row rowBotoes">
+                <div class="col-5 align-self-end"></div>
+                <button id="botaoAdicionar" type="submit" class="btn btn-success btn-sm botaoAdicionar" (click)="adicionarCalcado()">Adicionar</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="telaBusca" *ngIf="exibeTelaBusca">
+        <div class="corpoDaTela">
+
+            <h3 class="tituloCorpo">Busca de Calçado:</h3>
+
+            <div class="row itemNoCorpo">
+                <h5 class="col-2 label">Tamanho:</h5>
+
+                <input class="col-2" type="text" [(ngModel)]="filtroBuscaCalcado.tamanho_calcado">
+
+                <h5 class="col-2 label">Categoria:</h5>
+
+                <input class="col-2" type="text" [(ngModel)]="filtroBuscaCalcado.categoria_calcado">
+            </div>
+
+            <div class="row itemNoCorpo">
+                <h5 class="col-2 label">Cor:</h5>
+
+                <input class="col-2" type="text" [(ngModel)]="filtroBuscaCalcado.cor_calcado">
+
+                <h5 class="col-2 label">Preço (R$):</h5>
+
+                <input class="col-2" type="text" [(ngModel)]="filtroBuscaCalcado.preco_calcado">
+            </div>
+
+            <div class="row itemNoCorpo">
+                <h5 class="col-2 label">Marca:</h5>
+
+                <input class="col-2" type="text" [(ngModel)]="filtroBuscaCalcado.marca_calcado">
+
+                <h5 class="col-2 label">Descrição:</h5>
+
+                <input class="col-2" type="text" [(ngModel)]="filtroBuscaCalcado.descricao_calcado">
+            </div>
+
+            <div class="row itemNoCorpo">
+                <h5 class="col-2 label">Data de:</h5>
+
+                <input class="col-2" type="text" [(ngModel)]="filtroBuscaCalcado.data_cadastro_calcado">
+            </div>
+
+
+            <div class="row rowBotoes">
+                <div class="col-7 align-self-end"></div>
+                <button id="botaoAdicionar" type="submit" class="btn btn-success btn-sm botaoAdicionar" (click)="buscarCalcado()">Buscar</button>
+            </div>
+
+
+
+            <div class="tabelaBuscaCalcados" *ngIf="exibeTabelaBusca">
+
+                <table class="table table-hover">
+                    <thead class="thead-default">
+                        <tr>
+                            <th class="text-center">Tamanho</th>
+                            <th class="text-center">Categoria</th>
+                            <th class="text-center">Cor</th>
+                            <th class="text-center">Preço (R$)</th>
+                            <th class="text-center">Marca</th>
+                            <th class="text-center">Qtd. Estoque</th>
+                            <th class="text-center">Descrição</th>
+                            <th class="text-center">Data Cadastro</th>
+                            <th class="text-center"></th>
+                            <th class="text-center"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let c of calcados let i = index">
+                            <td class="text-center"> {{ c.tamanhoCalcado }} </td>
+                            <td class="text-center"> {{ c.categoriaCalcado }} </td>
+                            <td class="text-center"> {{ c.corCalcado }} </td>
+                            <td class="text-center"> {{ c.precoCalcado | currency:'R$':'symbol':'1.2-2' }} </td>
+                            <td class="text-center"> {{ c.marcaCalcado }} </td>
+                            <td class="text-center"> {{ c.quantidadeEstoqueCalcado }} </td>
+                            <td class="text-center"> {{ c.descricaoCalcado }} </td>
+                            <td class="text-center"> {{ c.dataCadCalcado }} </td>
+                            <td class="text-center">
+                                <button class="btn btn-outline-primary btn-sm" title="Atualizar Item" (click)="editarCalcado(c)">
+                                    <i style="font-size: 1.0em">Att</i>
+                                </button>
+                            </td>
+                            <td class="text-center">
+                                <button class="btn btn-outline-danger btn-sm" title="Remover Item" (click)="deletarCalcado(c.idCalcado)">
+                                    <i style="font-size: 1.0em">X</i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="telaAlteracao" *ngIf="exibeTelaAlteracao">
+        <div class="corpoDaTela">
+            <div class="corpoDaTela">
+
+                <h3 class="tituloCorpo">Edição de Calçado:</h3>
+
+                <div class="row itemNoCorpo">
+                    <h5 class="col-2">Tamanho:</h5>
+
+                    <input class="col-4" type="text" [(ngModel)]="alterarCalcado.tamanhoCalcado">
+                </div>
+
+                <div class="row itemNoCorpo">
+                    <h5 class="col-2">Categoria:</h5>
+
+                    <input class="col-4" type="text" [(ngModel)]="alterarCalcado.categoriaCalcado">
+                </div>
+
+                <div class="row itemNoCorpo">
+                    <h5 class="col-2">Cor:</h5>
+
+                    <input class="col-4" type="text" [(ngModel)]="alterarCalcado.corCalcado">
+                </div>
+
+                <div class="row itemNoCorpo">
+                    <h5 class="col-2">Preço (R$):</h5>
+
+                    <input class="col-4" type="text" [(ngModel)]="alterarCalcado.precoCalcado">
+                </div>
+
+                <div class="row itemNoCorpo">
+                    <h5 class="col-2">Marca:</h5>
+
+                    <input class="col-4" type="text" [(ngModel)]="alterarCalcado.marcaCalcado">
+                </div>
+
+                <div class="row itemNoCorpo">
+                    <h5 class="col-2">Data Cadastro:</h5>
+
+                    <input class="col-4" type="text" disabled [(ngModel)]="alterarCalcado.dataCadCalcado">
+                </div>
+
+                <div class="row itemNoCorpo">
+                    <h5 class="col-2">Qtd Estoque:</h5>
+
+                    <input class="col-4" type="text" [(ngModel)]="alterarCalcado.quantidadeEstoqueCalcado">
+                </div>
+
+                <div class="row itemNoCorpo">
+                    <h5 class="col-2">Descrição:</h5>
+
+                    <input class="col-4" type="text" [(ngModel)]="alterarCalcado.descricaoCalcado">
+                </div>
+
+                <div class="row rowBotoes">
+                    <div class="col-5 align-self-end"></div>
+                    <button id="botaoEditar" type="submit" class="btn btn-success btn-sm botaoAdicionar" (click)="salvarEdicao()">Salvar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
